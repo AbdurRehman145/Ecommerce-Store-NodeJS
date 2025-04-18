@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>eCommerce Homepage</title>
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="Brand Logo">
+      <span>MyShop</span>
+    </div>
+    <div class="search-bar">
+      <form action="/search" method="GET">
+        <input  type="text" name="q" placeholder="Search products..." />
+        <button  type="submit">Search</button>
+      </form>
+    </div>
+    <div class="header-buttons">
+      <button>Profile</button>
+      <button>Messages</button>
+      <button>Orders</button>
+      <button>My Cart</button>
+    </div>
+  </header>
+
+  <!-- Footer Navbar -->
+  <nav class="top-nav">
+    <ul class="nav-left">
+      <li><i class="fas fa-bars"></i> All category</li>
+      <li>Hot offers</li>
+      <li>Gift boxes</li>
+      <li>Projects</li>
+      <li>Menu item</li>
+      <li>Help <span class="dropdown">▾</span></li>
+    </ul>
+  
+    <ul class="nav-right">
+      <li>English, USD <span class="dropdown">▾</span></li>
+      <li>
+        Ship to <img src="https://flagcdn.com/de.svg" alt="Germany" class="flag" />
+        <span class="dropdown">▾</span>
+      </li>
+    </ul>
+  </nav>
+  
+
+   <!-- Main Section -->
+  <section class="main-section">
+    <div class="sidebar">
+      <ul>
+        <li class="active">Automobiles</li>
+        <a href="/productListing/Clothes"><li>Clothes and wear</li></a>
+        <a href="/productListing/Home"><li>Home interiors</li></a>
+        <a href="/productListing/Electronics"><li>Computer and tech</li></a>
+        <li>Tools, equipments</li>
+        <li>Sports and outdoor</li>
+        <li>Animal and pets</li>
+        <li>Machinery tools</li>
+        <a href="/productListingAll"><li>All category</li></a>
+      </ul>
+    </div>
+  
+    <div class="main-banner">
+      <div class="banner-text">
+        <h2>Latest trending <br><strong>Electronic items</strong></h2>
+        <button>Learn more</button>
+      </div>
+      <img src="headphones-laptop.png" alt="Electronics" />
+    </div>
+  
+    <div class="sidebar-right">
+      <div class="user-card">
+        <div class="user-info">
+          <div class="avatar"></div>
+          <div>
+            <p>Hi, user</p>
+            <span>let’s get stated</span>
+          </div>
+        </div>
+        <button class="btn-primary">Join now</button>
+        <button class="btn-secondary">Log in</button>
+      </div>
+      <div class="offer orange">Get US $10 off<br>with a new supplier</div>
+      <div class="offer teal">Send quotes with<br>supplier preferences</div>
+    </div>
+  </section>
+  
+
+  <!-- Deal Section -->
+  <section class="deals-offers">
+    <div class="deals-left">
+      <h3>Deals and offers</h3>
+      <p>Hygiene equipments</p>
+      <div class="countdown">
+        <div><span>04</span><small>Days</small></div>
+        <div><span>13</span><small>Hour</small></div>
+        <div><span>34</span><small>Min</small></div>
+        <div><span>56</span><small>Sec</small></div>
+      </div>
+    </div>
+  
+    <div class="deals-items">
+      <% dealProducts.forEach(product => { %> 
+        <a href="/productDetails/<%= product._id %>" class="product-link">
+          <div class="deal-item">
+            <img src="<%= product.image %>" alt="Smart watch">
+            <p><%= product.name %></p>
+           <span class="discount">-25%</span>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+
+
+  <!-- Categroy Section 1-->
+  <section class="home-outdoor-section"> 
+    <div class="home-outdoor-left">
+      <h2>Home and<br>outdoor</h2>
+      <button>Source now</button>
+    </div>
+  
+    <div class="home-outdoor-grid">
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+        <h4>Soft chairs</h4>
+        <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="/Frontend/assets/chair.jpg" alt="Soft chairs">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+        <h4>Sofa & chair</h4>
+        <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="/Frontend/assets/lamp.jpg" alt="Sofa and chair">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Kitchen dishes</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="/Frontend/assets/bed.jpg" alt="Kitchen dishes">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Smart watches</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="/Frontend/assets/smartwatch.jpg" alt="Smart watches">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Kitchen mixer</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="/Frontend/assets/juicer.jpg" alt="Kitchen mixer">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Blenders</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="/Frontend/assets/coffeemachine.jpg" alt="Blenders">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Home appliance</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="/Frontend/assets/thing.jpg" alt="Home appliance">
+      </div>
+      <div class="home-outdoor-item-card">
+        <div class="home-outdoor-item-info">
+          <h4>Washing Machine</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="/Frontend/assets/washingmachine.jpg" alt="Coffee maker">
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Categroy Section 2-->
+  <section class="electronic-section"> 
+    <div class="electronic-left">
+      <h2>Electronics &<br>gadgets</h2>
+      <button>Source now</button>
+    </div>
+  
+    <div class="electronic-grid">
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+        <h4>Soft chairs</h4>
+        <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="soft-chair.png" alt="Soft chairs">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+        <h4>Sofa & chair</h4>
+        <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="sofa-chair.png" alt="Sofa and chair">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Kitchen dishes</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="kitchen-dishes.png" alt="Kitchen dishes">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Smart watches</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="smart-watch.png" alt="Smart watches">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Kitchen mixer</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="kitchen-mixer.png" alt="Kitchen mixer">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Blenders</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="blender.png" alt="Blenders">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Home appliance</h4>
+          <p>From<br><p>USD 19</p></p>
+        </div>
+        <img src="home-appliance.png" alt="Home appliance">
+      </div>
+      <div class="electronic-item-card">
+        <div class="electronic-item-info">
+          <h4>Coffee maker</h4>
+          <p>From<br><p>USD 19</p></p>
+          </div>
+        <img src="coffee-maker.png" alt="Coffee maker">
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Section -->
+  <section class="recommended-section">
+    <h2>Recommended items</h2>
+    <div class="recommended-items-grid">
+      <% recommendedProducts.forEach(product => { %>
+        <a href="/productDetails/<%= product._id %>" class="product-link">
+          <div class="recommended-item-card">
+            <h3><%= product.name %></h3>
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+            <p>$<%= product.price %></p>
+            <button class="buy-now-button">BUY NOW</button>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+  
+  <!-- Inquiry Section -->
+  <section class="inquiry-section">
+    <div class="inquiry-left">
+      <h2>An easy way to send<br>requests to all suppliers</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    </div>
+  
+    <div class="inquiry-form">
+      <h3>Send quote to suppliers</h3>
+      <input type="text" placeholder="What item you need?" />
+      <textarea placeholder="Type more details"></textarea>
+      <div class="quantity-row">
+        <input type="text" placeholder="Quantity" />
+        <select>
+          <option>Pcs</option>
+          <option>Kg</option>
+          <option>Liters</option>
+        </select>
+      </div>
+      <button>Send inquiry</button>
+    </div>
+  </section>
+
+  
+  <!-- Suppliers Section -->
+  <section class="suppliers-section">
+    <h2>Suppliers by region</h2>
+    <div class="suppliers-grid">
+      <div class="supplier">
+        <img src="https://flagcdn.com/ae.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">Arabic Emirates</p>
+          <p class="domain">shopname.ae</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/hm.svg" alt="mm" class="flag" />
+        <div>
+          <p class="country">Australia</p>
+          <p class="domain">shopname.ae</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/us.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">United States</p>
+          <p class="domain">shopname.ae</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/ru.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">Russia</p>
+          <p class="domain">shopname.ru</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/it.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">Italy</p>
+          <p class="domain">shopname.it</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/dk.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">Denmark</p>
+          <p class="domain">denmark.com.dk</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/fr.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">France</p>
+          <p class="domain">shopname.com.fr</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/ae.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">Arabic Emirates</p>
+          <p class="domain">shopname.ae</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/cn.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">China</p>
+          <p class="domain">shopname.ae</p>
+        </div>
+      </div>
+      <div class="supplier">
+        <img src="https://flagcdn.com/gb.svg" alt="UAE" class="flag" />
+        <div>
+          <p class="country">United Kingdom</p>
+          <p class="domain">shopname.co.uk</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="newsletter-container">
+      <div class="newsletter-text">
+        <h2>Subscribe on our newsletter</h2>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+      </div>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <img src="logo-icon.png" alt="Brand logo">
+          <span>Brand</span>
+        </div>
+        <p>Best information about the company<br>gies here but now lorem ipsum is</p>
+        <div class="social-icons">
+          <img src="icon-facebook.png" alt="Facebook">
+          <img src="icon-twitter.png" alt="Twitter">
+          <img src="icon-linkedin.png" alt="LinkedIn">
+          <img src="icon-instagram.png" alt="Instagram">
+          <img src="icon-youtube.png" alt="YouTube">
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>About</h4>
+          <a href="#">About Us</a>
+          <a href="#">Find store</a>
+          <a href="#">Categories</a>
+          <a href="#">Blogs</a>
+        </div>
+        <div>
+          <h4>Partnership</h4>
+          <a href="#">About Us</a>
+          <a href="#">Find store</a>
+          <a href="#">Categories</a>
+          <a href="#">Blogs</a>
+        </div>
+        <div>
+          <h4>Information</h4>
+          <a href="#">Help Center</a>
+          <a href="#">Money Refund</a>
+          <a href="#">Shipping</a>
+          <a href="#">Contact us</a>
+        </div>
+        <div>
+          <h4>For users</h4>
+          <a href="#">Login</a>
+          <a href="#">Register</a>
+          <a href="#">Settings</a>
+          <a href="#">My Orders</a>
+        </div>
+        <div class="footer-apps">
+          <h4>Get app</h4>
+          <img src="appstore.png" alt="App Store">
+          <img src="googleplay.png" alt="Google Play">
+        </div>
+      </div>
+    </div>
+
+ 
+  </footer>
+
+
+</body>
+</html>

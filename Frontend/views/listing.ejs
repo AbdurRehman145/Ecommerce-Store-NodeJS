@@ -13,7 +13,9 @@
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <img src="logo.png" alt="Brand Logo">
+      <a href="/">
+        <img src="/assets/brand.png" alt="Brand Logo">
+      </a>
       <span>MyShop</span>
     </div>
     <div class="search-bar">
@@ -23,8 +25,8 @@
       </form>
     </div>
     <div class="header-buttons">
-      <button>Profile</button>
-      <button>Messages</button>
+      <a href="/addProduct"><button>Add Product</button></a>
+      <a href="/logout"><button>Logout</button></a>
       <button>Orders</button>
       <button>My Cart</button>
     </div>
@@ -88,10 +90,9 @@
           </div>
           <div class="filter-content">
             <ul class="filter-list-items">
-              <li>Mobile accessory</li>
-              <li>Electronics</li>
-              <li>Smartphones</li>
-              <li>Modern tech</li>
+              <a href="/productListing/Electronics"><li>Electronics</li></a>
+              <a href="/productListing/Clothes"><li>Clothes</li></a>
+              <a href="/productListing/Home"><li>Home Items</li></a>
             </ul>
             <a href="#" class="filter-seeall-link">See all</a>
           </div>

@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true
-  },
   name: {
     type: String,
     required: true
@@ -20,18 +16,38 @@ const productSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  soldCount: Number,
-  reviewCount: Number,
-  rating: Number,
+  soldCount: {
+    type: Number,
+    default: 0
+  },
+  reviewCount:  {
+    type: Number,
+    default: 0
+  },
+  rating: {
+    type: Number,
+    default: 0
+  },
   material: String,
-  mediumOrderPrice: Number,
-  largeOrderPrice: Number,
+  mediumOrderPrice: {
+    type: Number,
+    default: 20
+  },
+  largeOrderPrice: {
+    type: Number,
+    default: 10
+  },
   recommended: {
     type: Boolean,
     default: false
+  },
+  imageBuffer: {
+    data: Buffer,
+    contentType: String
   }
 }, { timestamps: true });
 
 const Product = mongoose.model('Product', productSchema);
+
 
 module.exports = Product;

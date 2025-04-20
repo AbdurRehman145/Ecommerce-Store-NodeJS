@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Product = require('./models/Product');
-
+const User = require('./models/User');
 // Load environment variables
 dotenv.config();
 
@@ -21,7 +21,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
 const sampleProducts = [
   {
-    id: 1,
     name: 'Smart Watch',
     price: 49.99,
     category: 'Electronics',
@@ -37,7 +36,6 @@ const sampleProducts = [
     recommended: true
   },
   {
-    id: 2,
     name: 'Bluetooth Headphones',
     price: 39.50,
     category: 'Electronics',
@@ -53,7 +51,6 @@ const sampleProducts = [
     recommended: true
   },
   {
-    id: 3,
     name: 'Camera',
     price: 250.00,
     category: 'Electronics',
@@ -69,7 +66,6 @@ const sampleProducts = [
     recommended: true
   },
   {
-    id: 4,
     name: 'Phone',
     price: 180.00,
     category: 'Electronics',
@@ -85,7 +81,6 @@ const sampleProducts = [
     recommended: true
   },
   {
-    id: 5,
     name: 'iPhone',
     price: 800.00,
     category: 'Electronics',
@@ -355,6 +350,52 @@ const sampleProducts = [
     largeOrderPrice: 29.99,
   }
 ];
+const sampleUsers = [
+  {
+    username: 'john_doe',
+    email: 'john@example.com',
+    password: 'hashedpassword123',
+  },
+  {
+    username: 'jane_smith',
+    email: 'jane@example.com',
+    password: 'securepass456',
+  },
+  {
+    username: 'bob_builder',
+    email: 'bob@example.com',
+    password: 'bobTheBuilder789',
+  },
+  {
+    username: 'alice_wonder',
+    email: 'alice@example.com',
+    password: 'wonderPass101',
+  },
+  {
+    username: 'charlie_brown',
+    email: 'charlie@example.com',
+    password: 'charlie321',
+  }
+];
+
+async function seedUsers() {
+  try {
+    for (const user of sampleUsers) {
+      const { email, ...updateData } = user;
+      await User.updateOne(
+        { email },           // Use 'email' as the unique identifier
+        { $set: updateData }, // Update the document
+        { upsert: true }      // Insert if not found
+      );
+      console.log(`✅ User "${user.username}" upserted or updated`);
+    }
+    process.exit();
+  } catch (err) {
+    console.error('❌ Seeding error:', err);
+    process.exit(1);
+  }
+}
+
 
 async function seedProducts() {
   try {
@@ -373,3 +414,5 @@ async function seedProducts() {
     process.exit(1);
   }
 }
+
+

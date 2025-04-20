@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="/styles/login.css">
+  <!-- Google Icons (for G and F) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <form class="login-container" method="POST" action="/login">
+    <h2>Sign in</h2>
+
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Email" required />
+    </div>
+
+    <div class="form-group">
+      <input type="password" name="password" placeholder="Password" required />
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="remember" name="remember" />
+      <label for="remember">Remember password</label>
+    </div>
+
+    <button type="submit" class="btn btn-login">Login</button>
+
+    <div class="divider"></div>
+
+    <button type="button" class="btn btn-google">
+      <i class="material-icons" style="vertical-align: middle;">g_translate</i>
+      SIGN IN WITH GOOGLE
+    </button>
+
+    <button type="button" class="btn btn-facebook">
+      <i class="material-icons" style="vertical-align: middle;">facebook</i>
+      SIGN IN WITH FACEBOOK
+    </button>
+  </form>
+</body>
+</html>

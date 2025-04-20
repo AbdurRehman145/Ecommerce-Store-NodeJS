@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <link rel="stylesheet" href="/styles/addProduct.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Add New Product</h2>
+    <form id="productForm" enctype="multipart/form-data">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Product Name" required>
+      </div>
+      <div class="form-group">
+        <input type="number" name="price" placeholder="Price" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="category" placeholder="Category" required>
+      </div>
+      <div class="form-group">
+        <textarea name="description" placeholder="Description" required rows="3" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="text" name="material" placeholder="Material" required>
+      </div>
+      <div class="form-group">
+        <input type="file" name="image" accept="image/*" required>
+      </div>
+      <button class="btn btn-login" type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('productForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      try {
+        const res = await fetch('/addProduct', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          alert('✅ Product added!');
+          this.reset();
+        } else {
+          alert('❌ ' + result.error);
+        }
+      } catch (error) {
+        alert('❌ Failed to send request');
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
